@@ -78,9 +78,31 @@ export default function BitcoinTicker() {
               <button
                 onClick={fetchPrice}
                 disabled={loading}
-                className="mt-4 px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 disabled:bg-gray-400"
+                className="mt-4 px-4 py-2 cursor-pointer bg-orange-500 text-white rounded hover:bg-orange-600 flex items-center justify-center"
               >
-                {loading ? "Refreshing..." : "Refresh"}
+                {loading && (
+                  <svg
+                    className="animate-spin h-5 w-5 mr-2 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v2a6 6 0 00-6 6H4zm2 5.291A7.96 7.96 0 014 12H2a9.96 9.96 0 003.106 7.07l1.414-1.414z"
+                    ></path>
+                  </svg>
+                )}
+                Refresh
               </button>
             </>
           )}
