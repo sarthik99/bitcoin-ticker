@@ -17,20 +17,23 @@ export default function BitcoinTicker() {
   const fetchPrice = async () => {
     setLoading(true);
     setError(null);
-    try {
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      if (data.bitcoin) {
-        setChange(data.bitcoin.usd_24h_change.toFixed(2));
-        setPrice(data.bitcoin.usd);
-        setLastUpdated(new Date().toLocaleTimeString());
+    setTimeout(async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        if (data.bitcoin) {
+          setChange(data.bitcoin.usd_24h_change.toFixed(2));
+          setPrice(data.bitcoin.usd);
+          setLastUpdated(new Date().toLocaleTimeString());
+        }
+      } catch (err) {
+        setError("Failed to fetch data");
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      setError("Failed to fetch data");
-    } finally {
-      setLoading(false);
-    }
+    }, 1000);
   };
+
 
   useEffect(() => {
     fetchPrice();
