@@ -14,6 +14,8 @@ export default function BitcoinTicker() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+
+
   const fetchPrice = async () => {
     setLoading(true);
     setError(null);
