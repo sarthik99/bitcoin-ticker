@@ -14,7 +14,7 @@ This is a simple Bitcoin price ticker built using Next.js. It fetches real-time 
 ## Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-repo/bitcoin-ticker.git
+   git clone https://github.com/sarthik99/bitcoin-ticker.git
    ```
 2. Navigate to the project folder:
    ```bash
